@@ -8,12 +8,6 @@ netsh wlan set profileparameter name=daeduck_office connectionmode=auto
 import os
 # import subprocess # subprocess는 파이썬에서 쉘 명령을 실행할 수 있게 해주는 라이브러리
 
-'''
-cmd = 'netsh wlan export profile name=daeduck_AGV key=clear folder=c:\Wi-Fi'
-cmd = 'netsh wlan add profile filename="C:\Wi-Fi\Wi-Fi-daeduck_AGV.xml" Interface="Wi-Fi" user=current'
-cmd = 'netsh wlan connect ssid=daeduck_AGV name=daeduck_AGV interface=Wi-Fi'
-cmd = 'netsh wlan set profileparameter name=daeduck_AGV connectionmode=auto'
-'''
 # ssid 프로파일 추출 명령어
 os.system('netsh wlan export profile name=daeduck_AGV key=clear folder=c:\Wi-Fi')
 # 신규 프로파일 추가 명령어
@@ -22,11 +16,3 @@ os.system('netsh wlan add profile filename="C:\Wi-Fi\Wi-Fi-daeduck_AGV.xml" Inte
 os.system('netsh wlan connect ssid=daeduck_AGV name=daeduck_AGV interface=Wi-Fi')
 # 추가 한 ssid에 자동 연결 시키는 명령어
 os.system('netsh wlan set profileparameter name=daeduck_AGV connectionmode=auto')
-
-# 값을 파일로 출력시키는 명령어
-'''
-f = open('test2.txt', 'w')
-sysMsg = subprocess.getstatusoutput(cmd)
-f.write(sysMsg[1])
-f.close()
-'''
