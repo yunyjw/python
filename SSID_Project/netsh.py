@@ -96,11 +96,11 @@ f.write('\n')
 f.close()
 
 # ssid 프로파일 추출 명령어 ( XML 파일을 사용자 PC에 저장시키면 이 작업은 굳이 안해도 됨)
-os.system('netsh wlan export profile name=daeduck_office key=clear folder=c:\Wi-Fi')
+# os.system('netsh wlan export profile name=daeduck_office key=clear folder=c:\\Wi-Fi')
 # 신규 프로파일 추가 명령어
-os.system('netsh wlan add profile filename="C:\Wi-Fi\Wi-Fi-daeduck_office.xml" Interface="Wi-Fi" user=current')
+os.system('netsh wlan add profile filename="C:\\temp\\daeduck_office.xml" Interface="Wi-Fi" user=current')
 # 프로파일 이용하여 ssid 접속 명령어 ( Wi-Fi )
-os.system('netsh wlan connect ssid=daeduck_AGV name=daeduck_office interface=Wi-Fi')
+os.system('netsh wlan connect ssid=daeduck_office name=daeduck_office interface=Wi-Fi')
 # 추가 한 ssid에 자동 연결 시키는 명령어
 os.system('netsh wlan set profileparameter name=daeduck_office connectionmode=auto')
 
