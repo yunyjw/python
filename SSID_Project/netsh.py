@@ -8,7 +8,14 @@
 '''
 
 import os
+
 # daeduck_office xml 파일 내용
+
+# from pathlib import Path
+# C:\Temp 라는 경로가 있는지를 검사하고 없으면 생성 할 수 있다.
+# parents: True는 상위 path가 없는 경우 새로 생성함, Flase는 상위 path가 없으면 FileNotFountError를 발생함
+# Path('C:\\Temp').mkdir(parents=True, exist_ok=True)
+
 
 # c:\temp\daeduck_office.xml 파일 생성 후 아래 내용 출력
 f = open("C:\\Temp\\Wi-Fi-daeduck_office.xml", 'w')
