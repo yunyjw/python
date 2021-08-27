@@ -11,19 +11,19 @@ import os
 # daeduck_office xml 파일 내용
 
 # c:\temp\daeduck_office.xml 파일 생성 후 아래 내용 출력
-f = open("C:\\temp\\daeduck_office.xml", 'w')
-ssid_1 = 'xml = <?xml version="1.0"?>'
+f = open("C:\\Temp\\Wi-Fi-daeduck_office.xml", 'w')
+ssid_1 = '<?xml version="1.0"?>'
 ssid_2 = '  <WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">'
 ssid_3 = '  <name>daeduck_office</name>'
 ssid_4 =  '	<SSIDConfig>'
 ssid_5 =  '		<SSID>'
-ssid_6 =  '			<hex>6461656475636B5F414756</hex>'
+ssid_6 =  '			<hex>6461656475636B5F6F6666696365</hex>'
 ssid_7 =  '			<name>daeduck_office</name>'
 ssid_8 =  '		</SSID>'
 ssid_9 =  '		<nonBroadcast>true</nonBroadcast>'
 ssid_10 = '	</SSIDConfig>'
 ssid_11 = '	<connectionType>ESS</connectionType>'
-ssid_12 = '	<connectionMode>manual</connectionMode>'
+ssid_12 = '	<connectionMode>auto</connectionMode>'
 ssid_13 = '	<MSM>'
 ssid_14 = '		<security>'
 ssid_15 = '			<authEncryption>'
@@ -95,12 +95,12 @@ f.write(ssid_27)
 f.write('\n')
 f.close()
 
+
 # ssid 프로파일 추출 명령어 ( XML 파일을 사용자 PC에 저장시키면 이 작업은 굳이 안해도 됨)
 # os.system('netsh wlan export profile name=daeduck_office key=clear folder=c:\\Wi-Fi')
 # 신규 프로파일 추가 명령어
-os.system('netsh wlan add profile filename="C:\\temp\\daeduck_office.xml" Interface="Wi-Fi" user=current')
+os.system('netsh wlan add profile filename="C:\\Temp\\Wi-Fi-daeduck_office.xml" Interface="Wi-Fi" user=current')
 # 프로파일 이용하여 ssid 접속 명령어 ( Wi-Fi )
 os.system('netsh wlan connect ssid=daeduck_office name=daeduck_office interface=Wi-Fi')
 # 추가 한 ssid에 자동 연결 시키는 명령어
 os.system('netsh wlan set profileparameter name=daeduck_office connectionmode=auto')
-
