@@ -17,6 +17,7 @@ ssid_2 = '  <WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile
 ssid_3 = '  <name>daeduck_office</name>'
 ssid_4 =  '	<SSIDConfig>'
 ssid_5 =  '		<SSID>'
+# [중요] ssid 별로 hex값이 다르기 때문에 수동으로 wifi 잡은 다음 파일 export 하여 값 확인 필요
 ssid_6 =  '			<hex>6461656475636B5F6F6666696365</hex>'
 ssid_7 =  '			<name>daeduck_office</name>'
 ssid_8 =  '		</SSID>'
