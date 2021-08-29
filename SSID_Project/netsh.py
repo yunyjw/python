@@ -102,7 +102,7 @@ f.write(ssid_27)
 f.write('\n')
 f.close()
 
-
+# pyinstaller  --uac-admin  sample.py / [주의] -F / --onefile 옵션과 함께 사용 안됨
 # ssid 프로파일 추출 명령어 ( XML 파일을 사용자 PC에 저장시키면 이 작업은 굳이 안해도 됨)
 # os.system('netsh wlan export profile name=daeduck_office key=clear folder=c:\\Wi-Fi')
 # 신규 프로파일 추가 명령어
