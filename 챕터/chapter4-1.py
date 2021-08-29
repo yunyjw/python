@@ -73,3 +73,70 @@ print(not True)
 print(not False)
 
 # 산술, 관계, 논리 우선순위
+# 우선순위 : 산술 > 관계 > 논리
+print('e1 :', 3+12 > 7+3)
+print('e2 :', 5 + 10 * 3 > 7 + 3 * 20)
+print('e3 :', 5 + 10 > 3 and 7 + 3 == 10) # 1번 계산 : 15가 3보다 크다, 2번 계산 : 7 + 3은 10과 같다 / True
+print('e4 :', 5 + 10 > 0 and not 7 + 3 == 10)
+
+score1 = 90
+score2 = 'A'
+
+# 복수의 조건이 모두 참일 경우에 실행 == and
+if score1 >= 90 and score2 == 'A':
+    print('pass')
+else:
+    print('Fail')
+
+# 예제 5
+id1 = 'vip'
+id2 = 'admin'
+grade = 'platinum'
+
+if id1 == 'vip' or id2 == 'admin':
+    print('관리자 입장')
+
+if id2 == 'admin' and grade == 'platinum':
+    print('최상위 관리자')
+
+# 예제 6
+# 다중 조건문 : elif는 조건문을 계속 붙일 수 있다
+num = 90
+
+if num >= 90:
+    print('Grade : A')
+elif num >= 80:
+    print('Grade : B')
+elif num >= 70:
+    print('Grade : C')
+else:
+    print('과락')
+
+# 예제 7
+# 중첩 조건문 : if문 안에 if
+
+grade = 'A'
+total = 90
+
+if grade == 'A':
+    if total >= 90:
+        print('장학금 100%')
+    elif total >= 80:
+        print('장학금 80%')
+    else:
+        print('장학금 50%')
+
+else:
+    print('장학금 없음')
+
+# in, not in
+q = [10, 20, 30] # 리스트
+w = {70, 80, 90, 100} # 집합
+e = {"name": "Lee", "city": "Seoul", "grade": "A"} # 딕셔너리
+r = (10, 12, 14) # 튜플
+
+print(15 in q)
+print(90 in w)
+print(12 not in r)
+print("name" in e)
+print("Seoul" in e.values()) # valuse는 key는 버리고 값만 가져옴
