@@ -6,15 +6,14 @@
 3. daeduck_office ssid 접속
 4. daeduck_office ssid 자동 연결
 '''
-
-import os
-
 # daeduck_office xml 파일 내용
+import os
+from pathlib import Path
+from time import sleep
 
-# from pathlib import Path
 # C:\Temp 라는 경로가 있는지를 검사하고 없으면 생성 할 수 있다.
 # parents: True는 상위 path가 없는 경우 새로 생성함, Flase는 상위 path가 없으면 FileNotFountError를 발생함
-# Path('C:\\Temp').mkdir(parents=True, exist_ok=True)
+Path('C:\\Temp').mkdir(parents=True, exist_ok=True)
 
 
 # c:\temp\daeduck_office.xml 파일 생성 후 아래 내용 출력
@@ -108,7 +107,9 @@ f.close()
 # os.system('netsh wlan export profile name=daeduck_office key=clear folder=c:\\Wi-Fi')
 # 신규 프로파일 추가 명령어
 os.system('netsh wlan add profile filename="C:\\Temp\\Wi-Fi-daeduck_office.xml" Interface="Wi-Fi" user=current')
+# 3초간 쉬었다가 명령어 실행
 # 프로파일 이용하여 ssid 접속 명령어 ( Wi-Fi )
+sleep(3)
 os.system('netsh wlan connect ssid=daeduck_office name=daeduck_office interface=Wi-Fi')
 # 추가 한 ssid에 자동 연결 시키는 명령어
 os.system('netsh wlan set profileparameter name=daeduck_office connectionmode=auto')
