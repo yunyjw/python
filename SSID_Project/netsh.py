@@ -119,6 +119,7 @@ def uac_require():
         return True
     except:
         return False
+
 '''
 # __name__ 이라는 변수의 값이 __main__이라면 아래의 코드를 실행하라 ( 오류 발생 )
 if __name__=='__main__'
