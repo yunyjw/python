@@ -8,8 +8,13 @@
 '''
 # daeduck_office xml 파일 내용
 import os
+from posixpath import join
+import sys
+from typing_extensions import ParamSpec
+import win32com.shell.shell as shell
 from pathlib import Path
 from time import sleep
+
 
 # C:\Temp 라는 경로가 있는지를 검사하고 없으면 생성 할 수 있다.
 # parents: True는 상위 path가 없는 경우 새로 생성함, Flase는 상위 path가 없으면 FileNotFountError를 발생함
@@ -101,6 +106,30 @@ f.write('\n')
 f.write(ssid_27)
 f.write('\n')
 f.close()
+
+# 관리자 권한 상승 요청 함수
+def uac_require():
+    asadmin ='asadmin'
+    try:
+        if sys.argv[-1] != asadmin:
+            script = os.path.abspath(sys.argv[0])
+            Params = 'join([script] + sys.argv[1:] + [asadmin])'
+            shell.ShellExecuteEx(IpVerb='runas', IpFile=sys.executable, IpParameter=Params)
+            sys.exit()
+        return True
+    except:
+        return False
+'''
+# __name__ 이라는 변수의 값이 __main__이라면 아래의 코드를 실행하라 ( 오류 발생 )
+if __name__=='__main__'
+    import win32com.shell.shell as shell
+    import os,sys
+
+    if uac_require():           # 관리자 권한 요청 함수 실행
+        print("continue")       # 권한 상승 시 True를 리턴 받아서 다음 작업 수행
+    else:                       # 관리자 권한으로 실행 안되면 False 받아 else 문 수행
+        print("error message")  # else문에 별도의 메시지를 넣거나 종료 등을 수행
+'''
 
 # pyinstaller  --uac-admin  sample.py / [주의] -F / --onefile 옵션과 함께 사용 안됨
 # ssid 프로파일 추출 명령어 ( XML 파일을 사용자 PC에 저장시키면 이 작업은 굳이 안해도 됨)
