@@ -11,7 +11,7 @@ sys.path.append('C:\\math')
 # sys.path.append('C:\\Git\\python_study\\챕터')
 print(sys.path)
 # import test_module
-import chapter
+# import chapter
 
  
 # 모듈 사용
