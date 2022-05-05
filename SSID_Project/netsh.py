@@ -11,7 +11,7 @@ import os
 from posixpath import join
 import sys
 from typing_extensions import ParamSpec
-import win32com.shell.shell as shell
+# import win32com.shell.shell as shell
 from pathlib import Path
 from time import sleep
 
